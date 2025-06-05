@@ -16,8 +16,10 @@ function getRouteInfo(id: string) {
     return { type: "page", route };
   } else if (parts[0].startsWith("package")) {
     const subPackage = parts[0];
-    const route = posix.join(...parts.slice(1)).replace(/\.vue$/, "");
-    return { type: "subPackage", subPackage, route };
+    if (parts[1] === "pages") {
+      const route = posix.join(...parts.slice(1)).replace(/\.vue$/, "");
+      return { type: "subPackage", subPackage, route };
+    }
   }
 }
 

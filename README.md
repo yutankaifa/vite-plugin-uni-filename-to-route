@@ -4,11 +4,11 @@
 
 ## 简介
 
-`vite-plugin-uni-filename-to-route` 是一个用于 uni-app 项目的 Vite 插件，能够根据 `src/pages` 和 `src/package*` 目录下的 `.vue` 文件自动生成和维护 `pages.json` 路由配置。支持页面的自动添加、删除和分包结构，极大提升多页面小程序项目的开发效率。
+`vite-plugin-uni-filename-to-route` 是一个用于 uni-app 项目的 Vite 插件，能够根据 `src/pages` 和 `src/package*/pages` 目录下的 `.vue` 文件自动生成和维护 `pages.json` 路由配置。支持页面的自动添加、删除和分包结构，极大提升多页面小程序项目的开发效率。
 
 ## 特性
 
-- 自动扫描 `src/pages` 和 `src/package*` 目录下的 `.vue` 文件
+- 自动扫描 `src/pages` 和 `src/package*/pages` 目录下的 `.vue` 文件
 - 新增页面自动写入 `pages.json`，无需手动维护
 - 删除页面自动同步移除对应路由
 - 支持分包（subPackages）结构
@@ -29,7 +29,7 @@ npm install vite-plugin-uni-filename-to-route --save-dev
 ```ts
 import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
-import uniFileToRoute from "vite-plugin-uni-file-to-route";
+import uniFileToRoute from "vite-plugin-uni-filename-to-route";
 import path from "path";
 
 export default defineConfig({
@@ -63,7 +63,7 @@ export default defineConfig({
 
 ## 原理简介
 
-- 插件在开发模式下监听 `src/pages` 和 `src/package*` 目录下的 `.vue` 文件变化（新增/删除），自动同步到 `pages.json`。
+- 插件在开发模式下监听 `src/pages` 和 `src/package*/pages` 目录下的 `.vue` 文件变化（新增/删除），自动同步到 `pages.json`。
 - 新增页面文件时自动添加路由，删除页面文件时自动移除路由。
 - 支持分包结构，分包下最后一个页面被删除时自动移除整个分包。
 
