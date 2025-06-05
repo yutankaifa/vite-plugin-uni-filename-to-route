@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-uni-filename-to-route",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "小程序基于文件名快速生成路由",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -17,6 +17,10 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yutankaifa/vite-plugin-uni-filename-to-route.git"
   },
   "keywords": [
     "uni",
