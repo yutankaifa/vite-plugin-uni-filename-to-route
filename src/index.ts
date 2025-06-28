@@ -46,7 +46,10 @@ function updatePagesJson(info: ReturnType<typeof getRouteInfo>) {
       pagesJson.subPackages.push(sub);
     }
     if (!sub.pages.some((p: any) => p.path === info.route)) {
-      sub.pages.push({ path: info.route });
+      sub.pages.push({
+        path: info.route,
+        style: { navigationStyle: "custom" },
+      });
     }
   }
 
